@@ -1,18 +1,12 @@
 <template>
 	<section class="pc_draw">
-		<div class="header clearfloat">
-			<img class="fl logo" src="../../assets/images/draw/logo.png" alt="" width="12.5%" />
-			<div class="fr tr right-box">
-				<div><a href="result.html"><img src="../../assets/images/draw/log.png" width="100%"/></a></div>
-			</div>
-		</div>
+		
+		<logoheader></logoheader>
 
 		<div class="content">
 			<div>
-                <div class="tc pr">
-                    <div class="periods">第1期</div>
-                    <img src="../../assets/images/draw/luck.png" alt=""  width="97%">
-                </div>
+				<periods></periods>
+
 				<div class="DrawWay tc">
                     <span>买单报手机号赢</span>
                     <img src="../../assets/images/draw/5000.png" alt="">
@@ -21,7 +15,7 @@
     
                 <div class="Prizes tc">
                     <li>
-                        <a href="click.html"><img src="../../assets/images/draw/yi_01.png" alt=""></a>
+                        <router-link to="/draw/click"><img src="../../assets/images/draw/yi_01.png" alt=""></router-link>
                         <div class="tc">5000元</div>
                         <div class="text_size tc">3名</div>
                     </li>
@@ -43,16 +37,18 @@
                 </div>
 			</div>
 		</div>
-		<div class="footer">
-			www.cgc999.com
-		</div>
-
-
+		<bottom></bottom>
 	</section>
 </template>
 
 <script>
+	import logoheader from './components/header'
+	import bottom from './components/footer'
+	import periods from './components/middle_periods'
 	export default {
+		components:{
+			bottom,periods,logoheader
+		},
 		data(){
 			return {
 
@@ -62,134 +58,49 @@
 </script>
 
 <style lang="less" scoped>
-.pc_draw {
-	margin:0;
-	padding:0;
-	width:100%;
-	height:100%;
-	font-size:.1rem;
-	font-family:"hiragino sans gb",Arial;
-	-webkit-tap-highlight-color:transparent;
-	position:relative;
-	background:url(../../assets/images/draw/bg.jpg) no-repeat;
-	background-size:100% 100%;
-	overflow-x:hidden;
-	overflow-y:hidden
-}
-li {
-	list-style-type:none
-}
-.fr {
-	float:right
-}
-.fl {
-	float:left
-}
-.tc {
-	text-align:center
-}
-.tr {
-	text-align:right
-}
-.tl {
-	text-align:left
-}
-.pr {
-	position:relative;
-	.periods {
-		position:absolute;
-		top:.65rem;
-		right:.3rem;
-		font-size:.3rem;
-		font-style:italic;
-		font-weight:bold;
-	}
-}
-.flex {
-	display:flex;
-	align-items:center;
-	justify-content:center
-}
-.mt10 {
-	margin-top:.054rem
-}
-.mt20 {
-	margin-top:.11rem
-}
-.mt30 {
-	margin-top:.16rem
-}
-.mr20 {
-	margin-right:.11rem
-}
-.red {
-	color:#dd1835
-}
-.clearfloat:after {
-	display:block;
-	clear:both;
-	content:"";
-	visibility:hidden;
-	height:0
-}
-.clearfloat {
-	zoom:1
-}
-.header {
-	cursor:pointer;
-	.right-box {
-		margin:1% 1% 0 0
-	}
-}
 .content {
 	padding:0 18%;
 	margin-top:-0.3rem
 }
-.footer {
-	position:absolute;
-	bottom:1%;
-	right:1%;
-	font-size:.15rem;
-	letter-spacing:2px;
-	font-weight:bold;
-	font-style:italic
-}
+
 .DrawWay {
-	margin-top:.1rem;
-	font-size:.4rem;
+	margin-top:.2rem;
+	font-size:1.1rem;
 	font-family:'黑体';
 	font-weight:bolder;
 	img {
-		margin-bottom:-0.054rem;
-		width:25%;
-		height:25%
+		margin-bottom:-0.1rem;
+		width:22%;
+		height:22%;
 	}
 }
 .Prizes {
 	margin:0.2rem auto 0 auto;
-	height:1.2rem;
+	height:2.4rem;
 	font-family:'黑体';
 	color:#e80b1a;
 	font-weight:bold;
-	font-size:.22rem;
+	font-size:.7rem;
 	li {
 		list-style:none;
-		width:1.35rem;
+		width:4.5rem;
 		float:left;
 		margin-right:.15rem;
 		margin-left:.126rem;
 		text-align:center;
 		margin-top:-0.1rem;
+		line-height: 0.4rem;
 		img {
 			width:100%;
 		}
-		div {
+		.text_size {
+			font-size:.6rem;
+			line-height: 1rem;
+		}
+		div{
 			margin-top:-0.1rem;
 			margin-bottom:.1rem;
-			margin-left:.15rem;
-		}
-		.text_size {
-			font-size:.17rem;
+			margin-left:.2rem
 		}
 	}
 }
